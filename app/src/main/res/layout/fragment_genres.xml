@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.genres.GenresFragment"
+    android:background="@color/color_6C7689"
+    android:id="@+id/genresFragment">
+
+    <TextView
+        android:text="@string/genres"
+        android:textColor="@color/white"
+        android:textStyle="normal"
+        android:textSize="@dimen/sp_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</FrameLayout>
