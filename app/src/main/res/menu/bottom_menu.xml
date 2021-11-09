@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemGenres"
+        android:title="@string/genres"
+        android:icon="@drawable/ic_bulleted"/>
+    <item
+        android:id="@+id/itemTrending"
+        android:title="@string/trending"
+        android:icon="@drawable/ic_fire"/>
+    <item
+        android:id="@+id/itemFavorite"
+        android:title="@string/favorite"
+        android:icon="@drawable/ic_favorite"/>
+</menu>
