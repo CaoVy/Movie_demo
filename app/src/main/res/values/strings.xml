@@ -4,4 +4,5 @@
     <string name="genres">Genres</string>
     <string name="trending">Trending</string>
     <string name="favorite">Favorite</string>
+    <string name="nameMovie">Name Movie</string>
 </resources>
