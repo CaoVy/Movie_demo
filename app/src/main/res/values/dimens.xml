@@ -4,4 +4,13 @@
     <dimen name="radius_8dp">8dp</dimen>
     <dimen name="dp_16">16dp</dimen>
     <dimen name="dp_128">128dp</dimen>
+    <dimen name="dp_32">32dp</dimen>
+    <dimen name="sp_18">18sp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
+    <dimen name="sp_14">14sp</dimen>
+    <dimen name="dp_174">174dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_7">7dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
 </resources>

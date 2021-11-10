@@ -24,7 +24,7 @@ class MovieDataRemote : MovieDataSource.Remote {
         .build()
         .create(ApiServices::class.java)
 
-    override fun getMovies() = apiServices.getMovieTrending()
+    override suspend fun getMovies() = apiServices.getMovieTrending()
 
     companion object {
         private var instance: MovieDataRemote? = null

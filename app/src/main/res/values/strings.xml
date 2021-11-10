@@ -5,4 +5,7 @@
     <string name="trending">Trending</string>
     <string name="favorite">Favorite</string>
     <string name="nameMovie">Name Movie</string>
+    <string name="release_date">Release Date:</string>
+    <string name="popularity">Popularity:</string>
+    <string name="overview">Overview</string>
 </resources>

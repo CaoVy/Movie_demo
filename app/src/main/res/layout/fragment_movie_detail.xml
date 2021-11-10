@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movieDetailFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_6C7689"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".screen.detail.MovieDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/movieImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintDimensionRatio="2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="1" />
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:background="@drawable/ic_backspace"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameMovieText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="@string/nameMovie"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/voteAverageText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movieImage" />
+
+        <ImageView
+            android:id="@+id/starImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_7"
+            android:background="@drawable/ic_star_rate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movieImage" />
+
+        <TextView
+            android:id="@+id/voteAverageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_6"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_6"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@id/starImage"
+            app:layout_constraintStart_toEndOf="@id/nameMovieText"
+            app:layout_constraintTop_toBottomOf="@id/movieImage" />
+
+
+        <TextView
+            android:id="@+id/releaseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="@string/release_date"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/starImage" />
+
+        <TextView
+            android:id="@+id/dateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_5"
+            android:layout_marginTop="@dimen/dp_16"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/releaseText"
+            app:layout_constraintTop_toBottomOf="@id/starImage" />
+
+        <TextView
+            android:id="@+id/popularityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="@string/popularity"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/releaseText" />
+
+        <TextView
+            android:id="@+id/votePopularityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_5"
+            android:layout_marginTop="@dimen/dp_16"
+            android:textColor="@color/color_FFFFFF"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/popularityText"
+            app:layout_constraintTop_toBottomOf="@id/dateText" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_174"
+            android:layout_marginTop="@dimen/dp_16"
+            app:cardCornerRadius="@dimen/radius_8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/popularityText"
+            app:layout_constraintWidth_percent="0.92">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_16">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/overview"
+                    android:textColor="@color/color_FFFFFF"
+                    android:textSize="@dimen/sp_14"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/overviewTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_FFFFFF"
+                    android:textSize="@dimen/sp_14"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

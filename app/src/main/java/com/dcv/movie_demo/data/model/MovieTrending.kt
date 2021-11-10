@@ -20,6 +20,9 @@ data class MovieTrending(
     @SerializedName("popularity")
     val popularity: Number = 100,
     @Expose
+    @SerializedName("vote_average")
+    val voteAverage: Double = 0.0,
+    @Expose
     @SerializedName("overview")
     val overview: String = ""
 ): Parcelable

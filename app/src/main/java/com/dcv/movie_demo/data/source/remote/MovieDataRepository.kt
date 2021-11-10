@@ -3,12 +3,13 @@ package com.dcv.movie_demo.data.source.remote
 import com.dcv.movie_demo.data.model.MovieTrending
 import com.dcv.movie_demo.data.model.MovieTrendingResponse
 import retrofit2.Call
+import retrofit2.Response
 
 class MovieDataRepository constructor(
     private val remote: MovieDataSource.Remote,
     private val local: MovieDataSource.Local
 ) {
-    fun getMovie(): Call<MovieTrendingResponse<MutableList<MovieTrending>>> {
+   suspend fun getMovie(): Response<MovieTrendingResponse<MutableList<MovieTrending>>> {
         return remote.getMovies()
     }
 

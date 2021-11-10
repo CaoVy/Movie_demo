@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.list_movie.view.*
 
 class MovieAdapter() : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
+    var onClickItemMovie: ((MovieTrending) -> Unit)? = null
+
     private var movieTrendings = mutableListOf<MovieTrending>()
 
     @SuppressLint("NotifyDataSetChanged")
@@ -37,6 +39,9 @@ class MovieAdapter() : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
             itemView.let {
                 it.movieImage.loadImage(movieTrendings.backdropPath)
                 it.titleTextView.text = movieTrendings.title
+                it.setOnClickListener {
+                    onClickItemMovie?.invoke(movieTrendings)
+                }
             }
         }
     }

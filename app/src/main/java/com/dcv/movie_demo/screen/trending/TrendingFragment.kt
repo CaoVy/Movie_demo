@@ -7,19 +7,22 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.dcv.movie_demo.R
-import com.dcv.movie_demo.data.model.MovieTrending
-import com.dcv.movie_demo.data.source.local.MovieDataLocal
-import com.dcv.movie_demo.data.source.remote.MovieDataRemote
-import com.dcv.movie_demo.data.source.remote.MovieDataRepository
 import com.dcv.movie_demo.screen.adapter.MovieAdapter
-import com.dcv.movie_demo.screen.contact.MovieContact
-import com.dcv.movie_demo.screen.presenter.MovieTrendingPresenter
+import com.dcv.movie_demo.screen.detail.MovieDetailFragment
+import com.dcv.movie_demo.screen.trending_view_model.TrendingViewModel
+import com.dcv.movie_demo.utils.ext.addFragment
 import kotlinx.android.synthetic.main.fragment_trending.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class TrendingFragment : Fragment(), MovieContact.View {
+class TrendingFragment : Fragment() {
 
     private var movieAdapter: MovieAdapter? = null
+    private lateinit var trendingViewModel: TrendingViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,27 +36,19 @@ class TrendingFragment : Fragment(), MovieContact.View {
 
         movieAdapter = MovieAdapter()
         trendingRecyclerView.adapter = movieAdapter
-        initData()
-    }
-
-    override fun getMovieTrending(movieTrending: MutableList<MovieTrending>) {
-        movieAdapter?.update(movieTrending)
-    }
-
-    override fun onError(throwable: Throwable) {
-        Toast.makeText(this.context, throwable.message, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun initData() {
-        MovieTrendingPresenter(
-            MovieDataRepository.getInstance(
-                MovieDataRemote.getInstance(),
-                MovieDataLocal.getInstance()
-            )
-        ).run {
-            setView(this@TrendingFragment)
-            onStart()
+        movieAdapter?.onClickItemMovie = {
+            addFragment(R.id.trendingFragment, MovieDetailFragment.getInstance(it))
         }
+        trendingViewModel = ViewModelProvider(this).get(TrendingViewModel::class.java)
+        trendingViewModel.fetchAndShowMovies()
+
+        trendingViewModel.movieTrending.observe(viewLifecycleOwner, {
+            movieAdapter?.update(it)
+        })
+
+        trendingViewModel.error.observe(viewLifecycleOwner, {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        })
     }
 
     companion object {
